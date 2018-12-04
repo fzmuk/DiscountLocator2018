@@ -18,6 +18,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 import com.air.ws.core.CurrentActivity;
 
@@ -36,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        AppCenter.start(getApplication(), "bcf5d18a-f04b-4d4f-b947-36e7318c5752", Analytics.class, Crashes.class);
+
         setContentView(R.layout.activity_main);
         MainDatabase.initDatabase(this);
 
